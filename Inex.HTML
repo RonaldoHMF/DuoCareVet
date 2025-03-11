@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuoCareVet - Cálculo de Infusões</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: purple;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: purple;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: purple;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
+            height: auto;
+        }
+        .infusion-fields {
+            display: none;
+            margin-top: 20px;
+        }
+        .info-text {
+            display: none;
+            margin-top: 20px;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/DuaCareVet imagem.jpeg" alt="DuoCareVet Logo" class="logo">
+        <h1>DuoCareVet</h1>
+        <p>Especialistas em cuidados veterinários</p>
+    </header>
+    <div class="container">
+        <h2>Cálculo de Infusões</h2>
+        <a href="#" class="button" onclick="showInfusionFields('Dobutamina')">Dobutamina</a>
+        <a href="#" class="button" onclick="showInfusionFields('Propofol')">Propofol</a>
+        <a href="#" class="button" onclick="showInfusionFields('Noradrenalina')">Noradrenalina</a>
+        <a href="#" class="button" onclick="showInfusionFields('Fentanil')">Fentanil</a>
+        <a href="#" class="button" onclick="showInfusionFields('Nitroprussiato')">Nitroprussiato</a>
+        <a href="#" class="button" onclick="showInfusionFields('Midazolam')">Midazolam</a>
+        <a href="#" class="button" onclick="showInfusionFields('Cetamina')">Cetamina</a>
+        <a href="#" class="button" onclick="showInfusionFields('Lidocaína')">Lidocaína</a>
+        <a href="#" class="button" onclick="showInfusionFields('Amiodarona')">Amiodarona</a>
+        <a href="#" class="button" onclick="showInfusionFields('Maropitant')">Maropitant</a>
+
+        <div id="info-text-dobutamina" class="info-text">
+            <p><strong>Dobutamina</strong><br>
+            Dose de bula: 5 a 12mcg/kg min<br>
+            Concentração usual: 12.5mg/ml (12.500 mcg/ml)<br><br>
+            200mcg/ml = 1 ampola/ 250ml fluido<br>
+            1,5 mg/ml = 2 ml dobutamina em 20 ml fluido.</p>
+        </div>
+        <div id="info-text-propofol" class="info-text">
+            <p><strong>Propofol</strong><br>
+                Dose de bula: 0.1 a 0.5 mg/kg/min
+                Concentração usual: 10mg/ml.</p>
+        </div>
+
+        <div id="info-text-noradrenalina" class="info-text">
+            <p><strong>Noradrenalina</strong><br>
+                Dose de bula: 0,1 a 2 mcg/kg/min
+                Concentração usual: 1mg/ml (1000mcg/ml).</p>
+        </div>
+
+        <div id="info-text-fentanil" class="info-text">
+            <p><strong>Fentanil</strong><br>
+                Dose de bula: 1 a 5 mcg/kg/h
+                Concentração usual: 50 mcg/ml.</p>
+        </div>
+
+        <div id="info-text-nitroprussiato" class="info-text">
+            <p><strong>Nitroprussiato</strong><br>
+                Dose de bula: 0.5 a 1mcg/kg/min 
+                Concentração usual: 25mg/ml (25.000mcg/ml)
+                200mcg/ml = 1 ampola em 250ml de glicosado 5%.</p>
+        </div>
+
+        <div id="info-text-midazolam" class="info-text">
+            <p><strong>Midazolam</strong><br>
+                Midazolam
+                Dose usual: 0.3 a 0.5mg/ml
+                Concentração usual: 5mg/ml.</p>
+        </div>
+
+        <div id="info-text-cetamina" class="info-text">
+            <p><strong>Cetamina</strong><br>
+                Dose usual: 0.6 a 1 mg/kg/h
+                Concentração usual: 100mg/ml.</p>
+        </div>
+
+        <div id="info-text-lidocaína" class="info-text">
+            <p><strong>Lidocaína</strong><br>
+            A dose de infusão contínua de lidocaína varia conforme o objetivo do uso:<br><br>
+
+            <strong>1. Como antiarrítmico</strong><br>
+            <strong>Cães:</strong> 25–80 µg/kg/min (0,025–0,08 mg/kg/min) IV contínuo<br>
+            <strong>Gatos:</strong> 10–25 µg/kg/min (0,01–0,025 mg/kg/min) IV contínuo<br>
+            <strong>Bolus inicial (se necessário):</strong><br>
+            <strong>Cães:</strong> 1–2 mg/kg IV lento (máximo 4 mg/kg em 5 min)<br>
+            <strong>Gatos:</strong> 0,1–0,5 mg/kg IV lento (usar com cautela)<br><br>
+
+            <strong>2. Como analgésico (infusão intravenosa contínua)</strong><br>
+            <strong>Cães:</strong> 25–50 µg/kg/min (0,025–0,05 mg/kg/min) IV contínuo<br>
+            <strong>Gatos:</strong> 10–20 µg/kg/min (0,01–0,02 mg/kg/min) IV contínuo<br>
+            <strong>Bolus inicial:</strong><br>
+            <strong>Cães:</strong> 1–2 mg/kg IV<br>
+            <strong>Gatos:</strong> 0,5 mg/kg IV (uso limitado, risco de toxicidade)<br><br>
+
+            <strong>Concentração usual:</strong> 20mg/ml = 20.000 mcg/ml (não usar com vasoativo)<br><br>
+
+            <strong>Atenção:</strong><br>
+            Gatos são mais sensíveis à lidocaína e podem apresentar sinais de toxicidade mesmo em doses baixas.<br>
+            Monitorar sinais de toxicidade (náusea, tremores, convulsões, depressão cardiovascular).<br>
+            Contraindicada em pacientes com bradicardia grave, bloqueios AV avançados ou insuficiência hepática severa.
+            </p>
+        </div>
+
+        <div id="info-text-amiodarona" class="info-text">
+            <p><strong>Amiodarona</strong><br>
+                Realizar bolus de 2mg/kg/IV em 10 minutos
+                <br>Após isso seguir com CRI de  0,8mg/kg/h por 6 horas. 
+                <br>Após 6 horas, reduzir a taxa para 0,5mg/kg/h.<br>
+                <br>Concentração usual: 50mg/ml</p>
+        </div>
+
+        <div id="info-text-maropitant" class="info-text">
+            <p><strong>Maropitant</strong><br>
+                <br>Dose de Bolus 1 mg/kg IV em bolus lento<br>
+                <br>Taxa de infusão contínua (CRI): 50 - 150 µg/kg/h IV<br>
+                <br>Concentracao usual: 10ml/ml (10.000mcg/ml)</p><br>
+        </div>
+
+        <div id="infusion-fields-dobutamina" class="infusion-fields">
+            <h3 id="infusion-title-dobutamina"></h3>
+            <label for="dose-dobutamina">Dose (mcg/kg/min):</label>
+            <input type="number" id="dose-dobutamina" name="dose">
+            <br>
+            <label for="weight-dobutamina">Peso (kg):</label>
+            <input type="number" id="weight-dobutamina" name="weight">
+            <br>
+            <label for="volume-dobutamina">Concentração (mcg/ml):</label>
+            <input type="number" id="volume-dobutamina" name="volume">
+            <br>
+            <button onclick="calculateInfusion('dobutamina')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-propofol" class="infusion-fields">
+            <h3 id="infusion-title-propofol"></h3>
+            <label for="dose-propofol">Dose (mg/kg/min):</label>
+            <input type="number" id="dose-propofol" name="dose">
+            <br>
+            <label for="weight-propofol">Peso (kg):</label>
+            <input type="number" id="weight-propofol" name="weight">
+            <br>
+            <label for="volume-propofol">Concentração (mg/ml):</label>
+            <input type="number" id="volume-propofol" name="volume">
+            <br>
+            <button onclick="calculateInfusion('propofol')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-noradrenalina" class="infusion-fields">
+            <h3 id="infusion-title-noradrenalina"></h3>
+            <label for="dose-noradrenalina">Dose (mcg/kg/min):</label>
+            <input type="number" id="dose-noradrenalina" name="dose">
+            <br>
+            <label for="weight-noradrenalina">Peso (kg):</label>
+            <input type="number" id="weight-noradrenalina" name="weight">
+            <br>
+            <label for="volume-noradrenalina">Concentração (mcg/ml):</label>
+            <input type="number" id="volume-noradrenalina" name="volume">
+            <br>
+            <button onclick="calculateInfusion('noradrenalina')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-fentanil" class="infusion-fields">
+            <h3 id="infusion-title-fentanil"></h3>
+            <label for="dose-fentanil">Dose (mcg/kg/h):</label>
+            <input type="number" id="dose-fentanil" name="dose">
+            <br>
+            <label for="weight-fentanil">Peso (kg):</label>
+            <input type="number" id="weight-fentanil" name="weight">
+            <br>
+            <label for="volume-fentanil">Concentração (mcg/ml):</label>
+            <input type="number" id="volume-fentanil" name="volume">
+            <br>
+            <button onclick="calculateInfusion('fentanil')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-nitroprussiato" class="infusion-fields">
+            <h3 id="infusion-title-nitroprussiato"></h3>
+            <label for="dose-nitroprussiato">Dose (mcg/kg/min):</label>
+            <input type="number" id="dose-nitroprussiato" name="dose">
+            <br>
+            <label for="weight-nitroprussiato">Peso (kg):</label>
+            <input type="number" id="weight-nitroprussiato" name="weight">
+            <br>
+            <label for="volume-nitroprussiato">Concentração (mcg/ml):</label>
+            <input type="number" id="volume-nitroprussiato" name="volume">
+            <br>
+            <button onclick="calculateInfusion('nitroprussiato')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-midazolam" class="infusion-fields">
+            <h3 id="infusion-title-midazolam"></h3>
+            <label for="dose-midazolam">Dose (mg/kg/h):</label>
+            <input type="number" id="dose-midazolam" name="dose">
+            <br>
+            <label for="weight-midazolam">Peso (kg):</label>
+            <input type="number" id="weight-midazolam" name="weight">
+            <br>
+            <label for="volume-midazolam">Concentração (mg/ml):</label>
+            <input type="number" id="volume-midazolam" name="volume">
+            <br>
+            <button onclick="calculateInfusion('midazolam')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-cetamina" class="infusion-fields">
+            <h3 id="infusion-title-cetamina"></h3>
+            <label for="dose-cetamina">Dose (mg/kg/h):</label>
+            <input type="number" id="dose-cetamina" name="dose">
+            <br>
+            <label for="weight-cetamina">Peso (kg):</label>
+            <input type="number" id="weight-cetamina" name="weight">
+            <br>
+            <label for="volume-cetamina">Concentração (mg/ml):</label>
+            <input type="number" id="volume-cetamina" name="volume">
+            <br>
+            <button onclick="calculateInfusion('cetamina')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-lidocaína" class="infusion-fields">
+            <h3 id="infusion-title-lidocaína"></h3>
+            <label for="dose-lidocaína">Dose (mcg/kg/min):</label>
+            <input type="number" id="dose-lidocaína" name="dose">
+            <br>
+            <label for="weight-lidocaína">Peso (kg):</label>
+            <input type="number" id="weight-lidocaína" name="weight">
+            <br>
+            <label for="volume-lidocaína">Concentração (mcg/ml):</label>
+            <input type="number" id="volume-lidocaína" name="volume">
+            <br>
+            <button onclick="calculateInfusion('lidocaína')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-amiodarona" class="infusion-fields">
+            <h3 id="infusion-title-amiodarona"></h3>
+            <label for="dose-amiodarona">Dose (mg/kg/h):</label>
+            <input type="number" id="dose-amiodarona" name="dose">
+            <br>
+            <label for="weight-amiodarona">Peso (kg):</label>
+            <input type="number" id="weight-amiodarona" name="weight">
+            <br>
+            <label for="volume-amiodarona">Concentração (mg/ml):</label>
+            <input type="number" id="volume-amiodarona" name="volume">
+            <br>
+            <button onclick="calculateInfusion('amiodarona')">Calcular</button>
+        </div>
+
+        <div id="infusion-fields-maropitant" class="infusion-fields">
+            <h3 id="infusion-title-maropitant"></h3>
+            <label for="dose-maropitant">Dose (mcg/kg/h):</label>
+            <input type="number" id="dose-maropitant" name="dose">
+            <br>
+            <label for="weight-maropitant">Peso (kg):</label>
+            <input type="number" id="weight-maropitant" name="weight">
+            <br>
+            <label for="volume-maropitant">Concentração (mcg/ml):</label>
+            <input type="number" id="volume-maropitant" name="volume">
+            <br>
+            <button onclick="calculateInfusion('maropitant')">Calcular</button>
+        </div>
+        
+    </div>
+
+    <div id="result" style="margin-top: 20px; display: none;">
+        <h3>Resultado:</h3>
+        <p id="result-text"></p>
+    </div>
+<script>
+
+
+    function calculateInfusion(medication) {
+        var dose = document.getElementById('dose-' + medication).value;
+        var weight = document.getElementById('weight-' + medication).value;
+        var concentracao = document.getElementById('volume-' + medication).value;
+
+        if (dose && weight && concentracao) {
+            var result;
+            if (medication === 'fentanil' || medication === 'midazolam' || medication === 'cetamina' || medication === 'amiodarona' || medication === 'maropitant') {
+                result = (dose * weight) / concentracao;
+            } else {
+                result = (dose * weight * 60) / concentracao;
+            }
+            document.getElementById('result-text').innerText = result.toFixed(2) + ' ml/h';
+            document.getElementById('result').style.display = 'block';
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    }
+
+    function resetCalculation() {
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('result-text').innerText = '';
+        document.querySelectorAll('input[type="number"]').forEach(function(input) {
+            input.value = '';
+        });
+    }
+</script>
+<script>
+    let currentMedication = '';
+
+    function showInfusionFields(medication) {
+        currentMedication = medication;
+        document.querySelectorAll('.infusion-fields').forEach(function(div) {
+            div.style.display = 'none';
+        });
+        document.getElementById('infusion-title-' + medication.toLowerCase()).innerText = 'Cálculo de Infusão para ' + medication;
+        document.getElementById('infusion-fields-' + medication.toLowerCase()).style.display = 'block';
+        document.querySelectorAll('.info-text').forEach(function(div) {
+            div.style.display = 'none';
+        });
+        if (medication === 'Dobutamina') {
+            document.getElementById('info-text-dobutamina').style.display = 'block';
+        }
+        if (medication === 'Propofol') {
+            document.getElementById('info-text-propofol').style.display = 'block';
+        }
+        if (medication === 'Noradrenalina') {   
+            document.getElementById('info-text-noradrenalina').style.display = 'block';
+        }
+        if (medication === 'Fentanil') {
+            document.getElementById('info-text-fentanil').style.display = 'block';
+        }
+        if (medication === 'Nitroprussiato') {
+            document.getElementById('info-text-nitroprussiato').style.display = 'block';
+        }
+        if (medication === 'Midazolam') {
+            document.getElementById('info-text-midazolam').style.display = 'block';
+        }
+        if (medication === 'Cetamina') {
+            document.getElementById('info-text-cetamina').style.display = 'block';
+        }
+        if (medication === 'Lidocaína') {
+            document.getElementById('info-text-lidocaína').style.display = 'block';
+        }
+        if (medication === 'Amiodarona') {
+            document.getElementById('info-text-amiodarona').style.display = 'block';
+        }
+        if (medication === 'Maropitant') {
+            document.getElementById('info-text-maropitant').style.display = 'block';
+        }
+    }
+
+    function calculateInfusion(medication) {
+        var dose = document.getElementById('dose-' + medication).value;
+        var weight = document.getElementById('weight-' + medication).value;
+        var concentracao = document.getElementById('volume-' + medication).value;
+
+        if (dose && weight && concentracao) {
+            var result;
+            if (medication === 'fentanil' || medication === 'midazolam' || medication === 'cetamina' || medication === 'amiodarona' || medication === 'maropitant') {
+                result = (dose * weight) / concentracao;
+            } else {
+                result = (dose * weight * 60) / concentracao;
+            }
+            document.getElementById('result-text').innerText = result.toFixed(2) + ' ml/h';
+            document.getElementById('result').style.display = 'block';
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    }
+</script>
+</body>
+</html>
+
