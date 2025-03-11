@@ -416,3 +416,77 @@
 </body>
 </html>
 
+<style>
+    .infusion-fields {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .infusion-fields label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    .infusion-fields input {
+        width: 50%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .infusion-fields button {
+        padding: 10px 20px;
+        background-color: purple;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .infusion-fields button:hover {
+        background-color: darkviolet;
+    }
+</style>
+
+<script>
+    function showInfusionFields(medication) {
+        currentMedication = medication;
+        document.querySelectorAll('.infusion-fields').forEach(function(div) {
+            div.style.display = 'none';
+        });
+        document.getElementById('infusion-title-' + medication.toLowerCase()).innerText = 'Cálculo de Infusão para ' + medication;
+        document.getElementById('infusion-fields-' + medication.toLowerCase()).style.display = 'block';
+        document.querySelectorAll('.info-text').forEach(function(div) {
+            div.style.display = 'none';
+        });
+        if (medication === 'Dobutamina') {
+            document.getElementById('info-text-dobutamina').style.display = 'block';
+        }
+        if (medication === 'Propofol') {
+            document.getElementById('info-text-propofol').style.display = 'block';
+        }
+        if (medication === 'Noradrenalina') {   
+            document.getElementById('info-text-noradrenalina').style.display = 'block';
+        }
+        if (medication === 'Fentanil') {
+            document.getElementById('info-text-fentanil').style.display = 'block';
+        }
+        if (medication === 'Nitroprussiato') {
+            document.getElementById('info-text-nitroprussiato').style.display = 'block';
+        }
+        if (medication === 'Midazolam') {
+            document.getElementById('info-text-midazolam').style.display = 'block';
+        }
+        if (medication === 'Cetamina') {
+            document.getElementById('info-text-cetamina').style.display = 'block';
+        }
+        if (medication === 'Lidocaína') {
+            document.getElementById('info-text-lidocaína').style.display = 'block';
+        }
+        if (medication === 'Amiodarona') {
+            document.getElementById('info-text-amiodarona').style.display = 'block';
+        }
+        if (medication === 'Maropitant') {
+            document.getElementById('info-text-maropitant').style.display = 'block';
+        }
+        document.getElementById('infusion-fields-' + medication.toLowerCase()).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
